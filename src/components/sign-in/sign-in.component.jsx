@@ -43,6 +43,7 @@ handleChange = event => {
         <h2> Ya tengo una cuenta</h2>
         <span>Ingresar con tu email y tu password</span>
         <form onSubmit={this.handleSubmit}>
+        
           <FormInput
             name='email' 
             type='email' 
