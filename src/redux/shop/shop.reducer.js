@@ -1,16 +1,14 @@
+import SHOP_DATA from './shop.data';
 
-import SHOP_DATA from './shop.data'
-import { Switch } from 'react-router-dom'
-
-const INITAL_STATE = {
+const INITIAL_STATE = {
   collections: SHOP_DATA
-}
+};
 
-const shopReducer = (state = INITAL_STATE, ACTION) => {
-  switch(ACTION.type) {
+const shopReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default shopReducer;
