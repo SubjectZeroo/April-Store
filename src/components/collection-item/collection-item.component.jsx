@@ -6,7 +6,7 @@ import CustomButton from '../custom-button/custom-button.component'
 import './collection-item.styles.scss';
 
 import { addItem } from '../../redux/cart/cart.actions'
-import CollectionPreview from '../preview-collection/preview-collection';
+import CollectionPreview from '../collection-preview/collection-preview.component';
 
 
 const CollectionItem = ({ item, addItem }) => {
