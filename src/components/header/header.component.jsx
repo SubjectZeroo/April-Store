@@ -11,7 +11,9 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 
 import { selectCurrentUser } from '../../redux/user/user.selector';
 
-import { ReactComponent as Logo } from '../../assets/uo.jpg';
+// import { ReactComponent as Logo } from '../../assets/uo.jpg';
+
+import logo from '../../assets/logo-01.png'
 
 import './header.styles.scss';
 import { selectCartHidden } from '../../redux/cart/cart.selector';
@@ -20,13 +22,13 @@ import { selectCartHidden } from '../../redux/cart/cart.selector';
 const HeaderPage = ({ currentUser, hidden }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
-    
+      <img src={logo} alt={"logo"}/> 
     </Link>
     <div className='options'>
       <Link className='option' to='/shop'>
         SHOP
       </Link>
-      <Link className='option' to='/shop'>
+      <Link className='option' to='/contact'>
         Contact
       </Link>
       {
