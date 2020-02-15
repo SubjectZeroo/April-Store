@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 
- 
+
   const config = {
     apiKey: "AIzaSyDD77JlGjR_KiZJbTyT9uTPrid11kHkRkc",
     authDomain: "e-commerce-db-9750a.firebaseapp.com",
@@ -14,22 +14,22 @@ import 'firebase/auth';
     appId: "1:404686100420:web:b50052d209c3cdb273f691",
     measurementId: "G-8PL5XGW7J1"
   };
- 
+
   firebase.initializeApp(config);
 
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
 
-  const provider = new firebase.auth.GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: 'select_account' });
+  export const googleProvider = new firebase.auth.GoogleAuthProvider();
+  googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-  export const signInWithGoogle = () => auth.signInWithPopup(provider);
+  export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
   const userRef = firestore.doc(`users/${userAuth.uid}`);
-  
+
   const snapShot = await userRef.get();
 
   if(!snapShot.exists) {
@@ -67,7 +67,7 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
- export const covertCollectionsSnapshotToMap = (collections) => {
+ export const convertCollectionsSnapshotToMap = (collections) => {
    const transformedCollection = collections.docs.map(doc =>{
      const{ title, items } = doc.data();
 
@@ -81,7 +81,7 @@ export const addCollectionAndDocuments = async (
 
   return transformedCollection.reduce((accumulator, collection) => {
       accumulator[collection.title.toLowerCase()] = collection;
-      return accumulator; 
+      return accumulator;
     }, {});
  };
 
