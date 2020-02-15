@@ -75,4 +75,3 @@ export default connect(
   mapStateProps,
   mapDispatchToProps
 )(App);
-
